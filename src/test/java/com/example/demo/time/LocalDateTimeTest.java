@@ -3,6 +3,8 @@ package com.example.demo.time;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.time.Clock;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
@@ -53,5 +55,20 @@ public class LocalDateTimeTest {
         System.out.println("获取上一分钟: " + fmt.format(time));
         LocalDateTime nextMin = LocalDateTime.now().plusMinutes(1L);
         System.out.println("获取下一分钟: " + fmt.format(nextMin));
+    }
+
+    @Test
+    void localDateTest() {
+        LocalDate localDate = LocalDate.now();
+        //输出：localDate = 2022-10-26
+        System.out.println("localDate = " + localDate);
+    }
+
+    @Test
+    void clockTest() {
+        Clock clock = Clock.systemUTC();
+        System.out.println("Clock : " + clock.millis());
+        Clock defaultClock = Clock.systemDefaultZone();
+        System.out.println("Clock : " + defaultClock.millis());
     }
 }
